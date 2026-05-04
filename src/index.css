@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tenda Medieval - Dark Forge Theme */
+    --background: 0 0% 8%;            /* #141414 */
+    --foreground: 40 30% 92%;
+
+    --card: 0 0% 8%;                  /* #151515 */
+    --card-foreground: 40 30% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 30% 92%;
+
+    --primary: 145 95% 24%;           /* #02793E forest green */
+    --primary-foreground: 45 97% 56%;
+
+    --secondary: 0 0% 18%;            /* #2d2d2d */
+    --secondary-foreground: 45 97% 56%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 40 10% 65%;
+
+    --accent: 45 97% 56%;             /* #fcbc24 royal gold */
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 75% 42%;
+    --destructive-foreground: 40 30% 92%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 97% 56%;
+
+    --gold: 45 97% 56%;
+    --gold-foreground: 0 0% 8%;
+    --forest: 145 95% 24%;
+    --forest-deep: 145 95% 14%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4% / 0.92) 0%, hsl(145 95% 10% / 0.7) 60%, hsl(0 0% 4% / 0.95) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 97% 56%) 0%, hsl(38 90% 45%) 100%);
+    --gradient-forest: linear-gradient(135deg, hsl(145 95% 24%) 0%, hsl(145 95% 14%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+
+    --shadow-gold: 0 10px 40px -10px hsl(45 97% 56% / 0.35);
+    --shadow-forge: 0 20px 60px -20px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 30px hsl(45 97% 56% / 0.25);
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 40 30% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Cinzel', serif; }
+  .text-gold { color: hsl(var(--gold)); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-forest { background: var(--gradient-forest); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .shadow-forge { box-shadow: var(--shadow-forge); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  .ornate-divider {
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent);
+    height: 1px;
+  }
+}
+
+@keyframes ember {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(-10px); }
+}
+.animate-ember { animation: ember 4s ease-in-out infinite; }
+
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-shine {
+  background: linear-gradient(90deg, hsl(var(--gold)) 0%, hsl(45 100% 80%) 50%, hsl(var(--gold)) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
